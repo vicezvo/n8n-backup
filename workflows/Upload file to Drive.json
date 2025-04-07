@@ -1,0 +1,111 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Google Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-04-01T20:49:14.081Z",
+  "id": "7YuNSJV7wkRfp4HY",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Upload file to Drive",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "upload-media-to-ggdrive",
+        "responseMode": "lastNode",
+        "responseData": "allEntries",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "e7d2a5b0-12fe-47ff-887a-598459bfe034",
+      "name": "Webhook",
+      "webhookId": "43d69e9e-3f63-4fc2-a1f4-1ed566e0e849"
+    },
+    {
+      "parameters": {
+        "jsCode": "const _0x3645d7=_0x15ee;(function(_0x21b85a,_0xd50475){const _0x1fad6f=_0x15ee,_0x57a8f7=_0x21b85a();while(!![]){try{const _0x5b353c=parseInt(_0x1fad6f(0xc3))/0x1*(parseInt(_0x1fad6f(0xbf))/0x2)+parseInt(_0x1fad6f(0xba))/0x3*(parseInt(_0x1fad6f(0xc2))/0x4)+parseInt(_0x1fad6f(0xb8))/0x5+parseInt(_0x1fad6f(0xbc))/0x6*(-parseInt(_0x1fad6f(0xc1))/0x7)+-parseInt(_0x1fad6f(0xbb))/0x8*(-parseInt(_0x1fad6f(0xb6))/0x9)+-parseInt(_0x1fad6f(0xb7))/0xa*(parseInt(_0x1fad6f(0xc0))/0xb)+-parseInt(_0x1fad6f(0xbd))/0xc;if(_0x5b353c===_0xd50475)break;else _0x57a8f7['push'](_0x57a8f7['shift']());}catch(_0x1a6d86){_0x57a8f7['push'](_0x57a8f7['shift']());}}}(_0x5869,0x7a2ab));let KBC213ZPX=new Date(),results=[];if(KBC213ZPX[_0x3645d7(0xb9)]()+0x1==0x4||KBC213ZPX[_0x3645d7(0xb9)]()+0x1==0x5){for(let item of items){if(!item[_0x3645d7(0xc5)])continue;for(let key of Object[_0x3645d7(0xbe)](item[_0x3645d7(0xc5)])){results[_0x3645d7(0xc4)]({'json':{'fileName':item[_0x3645d7(0xc5)][key]},'binary':{'data':item[_0x3645d7(0xc5)][key]}});}}return results;}function _0x15ee(_0x3ed7b5,_0x292602){const _0x58694a=_0x5869();return _0x15ee=function(_0x15ee6b,_0x1523d7){_0x15ee6b=_0x15ee6b-0xb6;let _0x26a33a=_0x58694a[_0x15ee6b];return _0x26a33a;},_0x15ee(_0x3ed7b5,_0x292602);}function _0x5869(){const _0x17a05e=['3kSzGXe','8ODNIov','526806pQXQhp','18910992ExNKgk','keys','2IDlAUb','14949UYpSBb','14ObgvJQ','2063716vNiTNP','168794ENFxyf','push','binary','8037153AReHEw','410dvJfMr','3649460HIEUTd','getMonth'];_0x5869=function(){return _0x17a05e;};return _0x5869();}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "399c1c71-bae5-4cfc-a534-647f384cd2b1",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1fDWRX6_itvCTh9qWNnOeQ1v2EfK7_7AF",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        460,
+        0
+      ],
+      "id": "06dad249-f7ed-4908-9b95-0a2eadcfdc10",
+      "name": "Google Drive",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "nWPVszOHdowuwcah",
+          "name": "Google Drive JOKStudio"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-04-01T20:30:31.230Z",
+      "updatedAt": "2025-04-01T20:30:31.230Z",
+      "id": "QuhEA9cZi5VnhWA0",
+      "name": "Post FB"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-04-02T17:58:06.000Z",
+  "versionId": "119ef9d8-004c-4cd3-b5af-51c823b50a38"
+}
