@@ -1,0 +1,596 @@
+{
+  "active": false,
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Instagram": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Facebook": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Airtable1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get all records with an image URL": {
+      "main": [
+        [
+          {
+            "node": "Update attachment field with images",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram": {
+      "main": [
+        [
+          {
+            "node": "Facebook",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Instagram",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-21T16:30:07.925Z",
+  "id": "1D0bCGFxsEJe3a3n",
+  "meta": null,
+  "name": "My_workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -520,
+        160
+      ],
+      "id": "43fa8cf8-3d0f-4064-9d7f-27d3ada03758",
+      "name": "Telegram Trigger",
+      "webhookId": "1bd61894-12f4-4e6a-84cb-3805f48795c8"
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "fileId": "={{ $json.message.photo[2].file_id }}"
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -300,
+        160
+      ],
+      "id": "cb3caaab-f3c6-4f06-b97f-35374a840f53",
+      "name": "Telegram",
+      "webhookId": "7955190e-34cf-49b4-9625-b96db102ce80"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "dd673480-9a86-480a-b3fd-1a2ef43a9e5e",
+              "name": "FPost",
+              "value": "={{ $json.output }}\n\n______________\n𝑬𝑴𝑴𝑬 | 𝑬𝒎 𝒍𝒂̀ 𝑻𝒐̂𝒊 & 𝑻𝒐̂𝒊 𝒄𝒖̃𝒏𝒈 𝒍𝒂̀ 𝑬𝒎\n▪️ Hotline đặt hàng/hỗ trợ giải quyết đơn hàng: 0775 649499 \n▪️ Phản ánh chất lượng: 087 87 67890\n▪️ Website: https://emme.vn\n▪️ Instagram: instagram.com/emmevietnam\n▪️ Tiktok: https://tiktok.com/@emmevn\n▪️ Shopee: shopee.vn/emmevn\n▪️ Lazada: lazada.vn/emmevn",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        360,
+        0
+      ],
+      "id": "0fae4272-e6b2-4948-bb26-cb23532ad4bc",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "787bf75b-4291-4b0b-a29b-1e6a59840efa",
+              "name": "InstaPost",
+              "value": "={{ $json.output }}\n__________________________________________\n𝑬𝑴𝑴𝑬 | 𝑬𝒎 𝒍𝒂̀ 𝑻𝒐̂𝒊 & 𝑻𝒐̂𝒊 𝒄𝒖̃𝒏𝒈 𝒍𝒂̀ 𝑬𝒎\nCheck out at: 𝒆𝒎𝒎𝒆.𝒗𝒏",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        360,
+        160
+      ],
+      "id": "ef8f9a59-5a6f-44f0-add6-8ba561e003a2",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "resource": "assistant",
+        "assistantId": {
+          "__rl": true,
+          "value": "asst_w6WDAljm015XHMQceWXyt2tS",
+          "mode": "list",
+          "cachedResultName": "EMME Instagram Post"
+        },
+        "prompt": "define",
+        "text": "Phân tích và trả về kết quả",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        0,
+        160
+      ],
+      "id": "3ebc42a3-7e35-476f-86e4-d4312e85f96f",
+      "name": "Instagram"
+    },
+    {
+      "parameters": {
+        "resource": "assistant",
+        "assistantId": {
+          "__rl": true,
+          "value": "asst_klSDCMqDQQn55fIuvkvBbgMc",
+          "mode": "list",
+          "cachedResultName": "EMME Facebook Post"
+        },
+        "prompt": "define",
+        "text": "Phân tích và trả về kết quả",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        0,
+        0
+      ],
+      "id": "f33434de-858e-463d-9f71-6b8fe2f37f68",
+      "name": "Facebook"
+    },
+    {
+      "parameters": {
+        "resource": "assistant",
+        "assistantId": {
+          "__rl": true,
+          "value": "asst_Fo0TrFmsoGRpJyF7ipL4SW1G",
+          "mode": "list",
+          "cachedResultName": "EMME Thread Post"
+        },
+        "prompt": "define",
+        "text": "=Phân tích và trả về kết quả",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        0,
+        320
+      ],
+      "id": "c3ca355b-6930-4d52-a232-a88d8891d39f",
+      "name": "OpenAI"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "07f4d963-8442-4085-8743-a2bc183ddaa0",
+              "name": "ThPost",
+              "value": "={{ $json.output }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        360,
+        320
+      ],
+      "id": "cee1d61d-8272-4984-a6c6-74b8881f889a",
+      "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appRegakwcgC3OFcJ",
+          "mode": "list",
+          "cachedResultName": "Social Post",
+          "cachedResultUrl": "https://airtable.com/appRegakwcgC3OFcJ"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblKYypsguiTyJYJ8",
+          "mode": "list",
+          "cachedResultName": "Table 1",
+          "cachedResultUrl": "https://airtable.com/appRegakwcgC3OFcJ/tblKYypsguiTyJYJ8"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "FB": "={{ $json.FPost }}",
+            "Insta": "={{ $json.InstaPost }}",
+            "Thread": "={{ $json.ThPost }}",
+            "Status": "Chưa Duyệt"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Ngày Tạo",
+              "displayName": "Ngày Tạo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "FB",
+              "displayName": "FB",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Insta",
+              "displayName": "Insta",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Thread",
+              "displayName": "Thread",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Chưa Duyệt",
+                  "value": "Chưa Duyệt"
+                },
+                {
+                  "name": "Đã Duyệt",
+                  "value": "Đã Duyệt"
+                },
+                {
+                  "name": "Đã Đăng",
+                  "value": "Đã Đăng"
+                },
+                {
+                  "name": "",
+                  "value": ""
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "IMG1",
+              "displayName": "IMG1",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "IMG2",
+              "displayName": "IMG2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "IMG3",
+              "displayName": "IMG3",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "IMG4",
+              "displayName": "IMG4",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        840,
+        160
+      ],
+      "id": "c994fa06-2dd1-47f0-93c4-98769fa8164c",
+      "name": "Airtable1"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "numberInputs": 3,
+        "options": {
+          "includeUnpaired": false
+        }
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        620,
+        160
+      ],
+      "id": "8722994c-e68d-482a-8af8-4e1c96658458",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appl4977Ncie38HO5",
+          "mode": "list",
+          "cachedResultName": "N8N Image Automation",
+          "cachedResultUrl": "https://airtable.com/appl4977Ncie38HO5"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblckzmOS9iFXapSj",
+          "mode": "list",
+          "cachedResultName": "Frogs",
+          "cachedResultUrl": "https://airtable.com/appl4977Ncie38HO5/tblckzmOS9iFXapSj"
+        },
+        "filterByFormula": "=NOT({Image source URL} = '')",
+        "options": {}
+      },
+      "id": "bf5082d9-a23d-4fe2-b0df-13cd938d9540",
+      "name": "Get all records with an image URL",
+      "type": "n8n-nodes-base.airtable",
+      "position": [
+        1200,
+        160
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appl4977Ncie38HO5",
+          "mode": "list",
+          "cachedResultName": "N8N Image Automation",
+          "cachedResultUrl": "https://airtable.com/appl4977Ncie38HO5"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblckzmOS9iFXapSj",
+          "mode": "list",
+          "cachedResultName": "Frogs",
+          "cachedResultUrl": "https://airtable.com/appl4977Ncie38HO5/tblckzmOS9iFXapSj"
+        },
+        "columns": {
+          "value": {
+            "id": "={{ $json.id }}",
+            "Image attachment": "={\n\"Attachment\": {\n\"url\": \"{{ $json[\"Image source URL\"] }}\"\n}\n}"
+          },
+          "schema": [
+            {
+              "id": "id",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "readOnly": true,
+              "required": false,
+              "displayName": "id",
+              "defaultMatch": true
+            },
+            {
+              "id": "Image source URL",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "readOnly": false,
+              "required": false,
+              "displayName": "Image source URL",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Image attachment",
+              "type": "object",
+              "display": true,
+              "removed": false,
+              "readOnly": false,
+              "required": false,
+              "displayName": "Image attachment",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "mappingMode": "defineBelow",
+          "matchingColumns": [
+            "id"
+          ]
+        },
+        "options": {}
+      },
+      "id": "f7ce3451-d07c-4fc3-8615-c3ceb84c9306",
+      "name": "Update attachment field with images",
+      "type": "n8n-nodes-base.airtable",
+      "position": [
+        1360,
+        160
+      ],
+      "typeVersion": 2
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-03-21T16:32:35.000Z",
+  "versionId": "c2cbc80f-9f7a-46b3-9994-77d143e1745e"
+}
