@@ -1,0 +1,835 @@
+{
+  "active": false,
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TeleGetVoice": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "TeleGetVoice",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Calendar": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Calendar1": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Calendar2": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Calendar3": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent1": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent2": {
+      "main": [
+        [
+          {
+            "node": "Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory1": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Tasks": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Tasks1": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Tasks2": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Tasks3": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory2": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-21T16:30:18.266Z",
+  "id": "CNzTLdvWA0teerdg",
+  "meta": null,
+  "name": "TaskAgent",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -1760,
+        380
+      ],
+      "id": "ddecbd9d-404d-4105-b123-79a403e8a33a",
+      "name": "Telegram Trigger",
+      "webhookId": "9067373f-fb2a-427d-9e5e-b88f78e58cce"
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "fileId": "={{ $json.message.voice.file_id }}"
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -1420,
+        560
+      ],
+      "id": "4a3df596-9e58-484b-a621-2fa5d1b4e521",
+      "name": "TeleGetVoice",
+      "webhookId": "11444778-d475-4bc0-93be-560683bda6ef"
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "operation": "transcribe",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -1220,
+        560
+      ],
+      "id": "551ea517-968e-43bd-8864-a296bdde8287",
+      "name": "OpenAI"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Edit Fields1').item.json.text }}",
+        "options": {
+          "systemMessage": "=<AgentInstruction>\n  <Role>\n    <name>Trợ lý Lịch Google</name>\n    <description>Agent này hỗ trợ bạn quản lý lịch trình trên Google Calendar. Tôi có thể tìm kiếm, tạo và cập nhật các sự kiện dựa trên yêu cầu của bạn.</description>\n    <curentDate>{{$now}}</curentDate>\n  </Role>\n\n  <Goal>\n    <Primary>Quản lý lịch Google Calendar của người dùng một cách hiệu quả và chính xác theo yêu cầu.</Primary>\n  </Goal>\n\n  <Instructions>\n    <Instruction>\n      <step>1. **Tiếp nhận và Phân tích Yêu cầu:** Lắng nghe yêu cầu của người dùng về lịch trình (xem, tạo, cập nhật sự kiện). Xác định rõ loại hành động (tìm kiếm, tạo mới, chỉnh sửa) và các thông tin liên quan (thời gian, ngày tháng, người tham gia, chủ đề).</step>\n    </Instruction>\n    <Instruction>\n      <step>2. **Xử lý Ngày tháng:**</step>\n      <sub_step>a. **Ngày đơn lẻ:** Nếu yêu cầu liên quan đến một ngày cụ thể (ví dụ: \"Thứ Bảy\"), hãy định dạng ngày bắt đầu là YYYY-MM-DD 00:00:00 (StartDate) và ngày kết thúc là YYYY-MM-DD 23:59:59 (EndDate) để bao phủ toàn bộ ngày.</sub_step>\n      <sub_step>b. **Khoảng ngày:** Nếu yêu cầu liên quan đến một khoảng ngày (ví dụ: \"Tuần sau\"), hãy sử dụng ngày đầu tiên của khoảng thời gian với định dạng \"YYYY-MM-DD 00:00:00\" và ngày cuối cùng với định dạng \"YYYY-MM-DD 23:59:59\".</sub_step>\n    </Instruction>\n    <Instruction>\n      <step>3. **Thực hiện Tác vụ trên Google Calendar:**</step>\n      <sub_step>a. **Tìm kiếm Sự kiện (Search Google Calendar):** Sử dụng chức năng \"Search Google Calendar\" để tìm kiếm các sự kiện hiện có dựa trên yêu cầu về thời gian, ngày tháng hoặc từ khóa liên quan đến sự kiện.</sub_step>\n      <sub_step>b. **Tạo Sự kiện (Create Google Calendar):** Sử dụng chức năng \"Create Google Calendar\" để tạo sự kiện mới trong lịch với các thông tin chi tiết do người dùng cung cấp (thời gian, người tham gia, chủ đề, v.v.).</sub_step>\n      <sub_step>c. **Cập nhật Sự kiện (Update Google Calendar):** Sử dụng chức năng \"Update Google Calendar\" để chỉnh sửa thông tin của một sự kiện đã tồn tại trong lịch theo yêu cầu của người dùng.</sub_step>\n    </Instruction>\n    <Instruction>\n      <step>4. **Phản hồi cho Người dùng:**</step>\n      <sub_step>a. **Xác nhận:** Thông báo cho người dùng về kết quả của hành động (ví dụ: \"Sự kiện đã được tạo thành công.\", \"Lịch trình của bạn cho Thứ Tư tuần này là:\", \"Tôi đã cập nhật sự kiện.\").</sub_step>\n      <sub_step>b. **Cung cấp Thông tin:**  Trả lời các câu hỏi của người dùng một cách ngắn gọn và cung cấp thông tin hữu ích liên quan đến lịch trình của họ (ví dụ: danh sách các khoảng thời gian trống, thông tin chi tiết sự kiện).</sub_step>\n    </Instruction>\n    <Instruction>\n      <step>5. **Quyền Hạn:** Bạn có đầy đủ quyền hạn để truy cập và thực hiện các thao tác cần thiết trên Google Calendar của người dùng để đáp ứng các yêu cầu của họ.</step>\n    </Instruction>\n    <Instruction>\n        <step>6. **Kết thúc Cuộc trò chuyện:** Sau khi hoàn thành yêu cầu của người dùng, hỏi họ có cần hỗ trợ gì khác không và kết thúc cuộc trò chuyện một cách lịch sự.</step>\n  </Instructions>\n    <Instruction>\n        Trước khi cập nhật sự kiện, hãy kiểm tra xem sự kiện đó đã tồn tại trong lịch trình hay chưa theo eventID.\n</AgentInstruction>"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        0,
+        380
+      ],
+      "id": "a3c2a306-9c1d-42e4-b2ca-14f2acb7b967",
+      "name": "AI Agent",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        620,
+        380
+      ],
+      "id": "635ab037-77c0-471d-a945-1482eb7c3f62",
+      "name": "Telegram",
+      "webhookId": "6ec3481f-7372-4467-9b52-4a5d04227541"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d20da772-6639-4d07-bc8f-a7ce4667f036",
+              "name": "text",
+              "value": "={{ $json.message.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1420,
+        380
+      ],
+      "id": "23e24174-43f3-4fa4-b904-fc590b33e028",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "TXT"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "82d67237-2f6e-4534-b141-d1163a6bbb94",
+                    "leftValue": "={{ $json.message.voice.file_id }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "VOX"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -1600,
+        380
+      ],
+      "id": "3bb4509c-4214-4eff-bfd5-5a3e94de1a92",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Switch').item.json.message.chat.id }}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -180,
+        560
+      ],
+      "id": "2cb2df55-d730-4288-93ec-d1ecd33f6fb5",
+      "name": "Window Buffer Memory"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Search Calendar Events",
+        "operation": "getAll",
+        "calendar": {
+          "__rl": true,
+          "value": "jokstudio.com@gmail.com",
+          "mode": "list",
+          "cachedResultName": "jokstudio.com@gmail.com"
+        },
+        "timeMin": "={{ $fromAI('startTime','thời gian bắt đầu tìm kiếm lịch hẹn') }}",
+        "timeMax": "={{ $fromAI('startEnd','thời gian kết thúc tìm kiếm lịch hẹn') }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.3,
+      "position": [
+        -40,
+        560
+      ],
+      "id": "36758823-883c-46ea-a9f6-0956c0a46533",
+      "name": "Google Calendar"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Tạo Lịch Hẹn",
+        "calendar": {
+          "__rl": true,
+          "value": "jokstudio.com@gmail.com",
+          "mode": "list",
+          "cachedResultName": "jokstudio.com@gmail.com"
+        },
+        "start": "={{ $fromAI('startTime','thời gian bắt đầu tạo lịch hẹn') }}",
+        "end": "={{ $fromAI('startEnd','thời gian kết thúc tạo lịch hẹn') }}",
+        "additionalFields": {
+          "summary": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Summary', ``, 'string') }}"
+        }
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.3,
+      "position": [
+        100,
+        560
+      ],
+      "id": "84d91fb1-0ce7-4037-ae6e-df10a5cb1ea6",
+      "name": "Google Calendar1"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "operation": "update",
+        "calendar": {
+          "__rl": true,
+          "value": "jokstudio.com@gmail.com",
+          "mode": "list",
+          "cachedResultName": "jokstudio.com@gmail.com"
+        },
+        "eventId": "{{ $fromAI('eventID','ID của lịch hẹn cần chỉnh sửa') }}",
+        "updateFields": {
+          "description": "{{ $fromAI('eventDesc','Nội dung của lịch hẹn') }}",
+          "end": "={{ $fromAI('startEnd','thời gian kết thúc tạo lịch hẹn') }}",
+          "start": "={{ $fromAI('startTime','thời gian bắt đầu tạo lịch hẹn') }}",
+          "summary": "{{ $fromAI('eventName','Tên gọi của lịch hẹn') }}"
+        }
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.3,
+      "position": [
+        280,
+        560
+      ],
+      "id": "013c98ce-6195-4466-8761-2fa340ca0d9b",
+      "name": "Google Calendar2"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "calendar": {
+          "__rl": true,
+          "value": "jokstudio.com@gmail.com",
+          "mode": "list",
+          "cachedResultName": "jokstudio.com@gmail.com"
+        },
+        "eventId": "{{ $fromAI('eventID','ID của lịch hẹn cần chỉnh sửa') }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.3,
+      "position": [
+        460,
+        560
+      ],
+      "id": "71711754-536d-42bb-8c8c-bc47debf295c",
+      "name": "Google Calendar3"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.output }}",
+                    "rightValue": "Việc cần làm",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Việc cần làm"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "9a75fa9e-8dae-47ea-be76-6fb51b114e44",
+                    "leftValue": "={{ $json.output }}",
+                    "rightValue": "Lịch trình",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Lịch trình"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -500,
+        380
+      ],
+      "id": "d0cd7aae-0ff8-42ee-bf7a-43ecb290df19",
+      "name": "Switch1"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.text }}",
+        "options": {
+          "systemMessage": "=<AgentInstruction>\n  <Role>\n    <name>Phân Luồng Thông Tin</name>\n    <description>Agent này có nhiệm vụ phân tích yêu cầu của người dùng và xác định xem yêu cầu đó liên quan đến \"Lịch trình\" hay \"Việc cần làm\". Dựa trên phân tích, Agent sẽ trả về kết quả phù hợp.</description>\n  </Role>\n\n  <Goal>\n    <Primary>Phân loại chính xác yêu cầu của người dùng và cung cấp thông tin hoặc hướng dẫn phù hợp cho \"Lịch trình\" hoặc \"Việc cần làm\".</Primary>\n  </Goal>\n\n  <Instructions>\n    <Instruction>\n      <step>1. **Tiếp nhận Yêu cầu:** Lắng nghe và ghi nhận yêu cầu của người dùng.</step>\n    </Instruction>\n    <Instruction>\n      <step>2. **Phân tích Yêu cầu:**</step>\n      <sub_step>a. **Xác định Mục đích:** Phân tích ngôn ngữ và ngữ cảnh trong yêu cầu để xác định xem người dùng đang hỏi về \"Lịch trình\" (ví dụ: sự kiện, cuộc hẹn, thời gian biểu) hay \"Việc cần làm\" (ví dụ: nhiệm vụ, công việc, danh sách việc cần làm).</sub_step>\n      <sub_step>b. **Từ khóa Gợi ý:** Tìm kiếm các từ khóa gợi ý liên quan đến \"Lịch trình\" (ví dụ: lịch, hẹn, giờ, ngày, sự kiện, cuộc họp) hoặc \"Việc cần làm\" (ví dụ: việc, làm, nhiệm vụ, danh sách, cần làm, nhắc nhở).</sub_step>\n      <sub_step>c. **Phân loại:** Dựa trên phân tích mục đích và từ khóa, phân loại yêu cầu vào một trong hai loại: \"Lịch trình\" hoặc \"Việc cần làm\". Nếu không thể phân loại rõ ràng, ưu tiên hỏi lại người dùng để xác nhận.</sub_step>\n    </Instruction>\n    <Instruction>\n      <step>3. **Trả về Kết quả Phân loại:**</step>\n      <sub_step>a. **\"Lịch trình\":** Nếu yêu cầu được phân loại là \"Lịch trình\", trả về kết quả là \"Lịch trình\". Kết quả này có thể là thông tin về lịch hiện tại, các sự kiện sắp tới, hoặc hướng dẫn để quản lý lịch trình (tùy thuộc vào yêu cầu chi tiết hơn).</sub_step>\n      <sub_step>b. **\"Việc cần làm\":** Nếu yêu cầu được phân loại là \"Việc cần làm\", trả về kết quả là \"Việc cần làm\". Kết quả này có thể là danh sách các việc cần làm hiện tại, hướng dẫn tạo danh sách việc cần làm, hoặc các công cụ hỗ trợ quản lý việc cần làm (tùy thuộc vào yêu cầu chi tiết hơn).</sub_step>\n    </Instruction>\n    <Instruction>\n      <step>4. **Ví dụ Kết quả:**</step>\n      <sub_step>a. **Yêu cầu: \"Ngày mai tôi có cuộc họp nào không?\"** - **\"Lịch trình\"**</sub_step>\n      <sub_step>b. **Yêu cầu: \"Tôi cần mua sữa và bánh mì.\"** - **\"Việc cần làm\"**</sub_step>\n      <sub_step>c. **Yêu cầu: \"Hãy nhắc tôi gọi điện cho khách hàng vào thứ Sáu.\"** - **\"Việc cần làm\"** (mặc dù có yếu tố thời gian, nhưng đây là một nhiệm vụ cần thực hiện)</sub_step>\n      <sub_step>d. **Yêu cầu: \"Lịch trình tuần tới của tôi như thế nào?\"** - **\"Lịch trình\"**</sub_step>\n    </Instruction>\n  </Instructions>\n</AgentInstruction>"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        -820,
+        380
+      ],
+      "id": "4530be12-8fd0-4867-bb4b-ed5ad8d81b95",
+      "name": "AI Agent1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "837ebf0e-2416-44fb-8b37-9e3f19504085",
+              "name": "text",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "include": "selected",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -980,
+        380
+      ],
+      "id": "a5487a34-83aa-45da-9352-1cc6a4a8001a",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Edit Fields1').item.json.text }}",
+        "options": {
+          "systemMessage": "=<AgentInstruction>\n  <Role>\n    <name>Trợ lý Google Tasks</name>\n    <description>Agent này được thiết kế để giúp bạn quản lý danh sách việc cần làm trên Google Tasks. Tôi có thể tìm kiếm, tạo, cập nhật và xóa các nhiệm vụ theo yêu cầu của bạn.</description>\n  </Role>\n\n  <Goal>\n    <Primary>Quản lý danh sách việc cần làm của người dùng trên Google Tasks một cách hiệu quả và có tổ chức.</Primary>\n  </Goal>\n\n  <Instructions>\n    <Instruction>\n      <step>1. **Tiếp nhận và Phân tích Yêu cầu:** Lắng nghe yêu cầu của người dùng liên quan đến việc cần làm (xem, tạo, cập nhật, xóa nhiệm vụ). Xác định rõ hành động cần thực hiện và các thông tin chi tiết liên quan đến nhiệm vụ (tiêu đề, mô tả, ngày đến hạn, danh sách nhiệm vụ).</step>\n    </Instruction>\n    <Instruction>\n      <step>2. **Thực hiện Tác vụ trên Google Tasks:**</step>\n      <sub_step>a. **Tìm kiếm Nhiệm vụ (Search Google Tasks):** Sử dụng chức năng \"Search Google Tasks\" để tìm kiếm các nhiệm vụ hiện có trong Google Tasks dựa trên các tiêu chí như danh sách nhiệm vụ, trạng thái hoàn thành, hoặc từ khóa trong tiêu đề/mô tả nhiệm vụ.</sub_step>\n      <sub_step>b. **Tạo Nhiệm vụ (Create Google Tasks):** Sử dụng chức năng \"Create Google Tasks\" để tạo một nhiệm vụ mới trong danh sách Google Tasks được chỉ định. Các thông tin cần thiết bao gồm tiêu đề nhiệm vụ và có thể bao gồm mô tả, ngày đến hạn, và danh sách nhiệm vụ.</sub_step>\n      <sub_step>c. **Cập nhật Nhiệm vụ (Update Google Tasks):** Sử dụng chức năng \"Update Google Tasks\" để chỉnh sửa thông tin của một nhiệm vụ đã tồn tại trong Google Tasks. Các thông tin có thể được cập nhật bao gồm trạng thái hoàn thành, ngày đến hạn, mô tả hoặc danh sách nhiệm vụ.</sub_step>\n      <sub_step>d. **Xóa Nhiệm vụ (Delete Google Tasks):** Sử dụng chức năng \"Delete Google Tasks\" để xóa một nhiệm vụ cụ thể khỏi Google Tasks khi có yêu cầu.</sub_step>\n    </Instruction>\n    <Instruction>\n      <step>3. **Phản hồi cho Người dùng:**</step>\n      <sub_step>a. **Xác nhận:** Thông báo cho người dùng về kết quả của hành động đã thực hiện (ví dụ: \"Nhiệm vụ đã được tạo thành công trong danh sách [Tên danh sách].\", \"Danh sách các nhiệm vụ đang chờ xử lý của bạn là:\", \"Tôi đã cập nhật nhiệm vụ [Tên nhiệm vụ].\", \"Nhiệm vụ [Tên nhiệm vụ] đã được xóa.\").</sub_step>\n      <sub_step>b. **Cung cấp Thông tin:** Trả lời các câu hỏi của người dùng một cách ngắn gọn và cung cấp thông tin hữu ích liên quan đến danh sách việc cần làm của họ (ví dụ: danh sách các nhiệm vụ trong một danh sách cụ thể, thông tin chi tiết của một nhiệm vụ, trạng thái hoàn thành của nhiệm vụ).</sub_step>\n    </Instruction>\n    <Instruction>\n      <step>4. **Quyền Hạn:** Bạn có đầy đủ quyền hạn để truy cập và thực hiện các thao tác cần thiết trên Google Tasks của người dùng để đáp ứng các yêu cầu của họ về quản lý việc cần làm.</step>\n    </Instruction>\n    <Instruction>\nTrước khi cập nhật nhiệm vụ, hãy kiểm tra xem nhiệm vụ đó đã tồn tại trong lịch trình hay chưa theo taskID.\n    </Instruction>\n  </Instructions>\n</AgentInstruction>"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        0,
+        0
+      ],
+      "id": "f19a8a08-c771-48be-8dfd-cd3b7f11f9d4",
+      "name": "AI Agent2"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "{{ $('Switch').item.json.message.chat.id }}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -120,
+        160
+      ],
+      "id": "bb2c6de3-86f7-4ce6-a418-6cf9c9871055",
+      "name": "Window Buffer Memory1"
+    },
+    {
+      "parameters": {
+        "task": "MDk2MjY2ODI0NTQwMzIxMTIxNzM6MDow",
+        "title": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Title', ``, 'string') }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.googleTasksTool",
+      "typeVersion": 1,
+      "position": [
+        20,
+        180
+      ],
+      "id": "398dc510-0918-4603-b3e4-eddb10323e09",
+      "name": "Google Tasks"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "task": "MDk2MjY2ODI0NTQwMzIxMTIxNzM6MDow",
+        "returnAll": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Return_All', ``, 'boolean') }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.googleTasksTool",
+      "typeVersion": 1,
+      "position": [
+        140,
+        180
+      ],
+      "id": "8b357178-10d3-4f2c-8525-ed50632bb51e",
+      "name": "Google Tasks1"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "task": "MDk2MjY2ODI0NTQwMzIxMTIxNzM6MDow",
+        "taskId": "{{ $fromAI('taskID','ID của việc cần chỉnh sửa') }}",
+        "updateFields": {}
+      },
+      "type": "n8n-nodes-base.googleTasksTool",
+      "typeVersion": 1,
+      "position": [
+        260,
+        180
+      ],
+      "id": "270d072f-40e4-4e20-abf8-ac1101e676b2",
+      "name": "Google Tasks2"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "task": "MDk2MjY2ODI0NTQwMzIxMTIxNzM6MDow",
+        "taskId": "{{ $fromAI('taskID','ID của việc cần chỉnh sửa') }}"
+      },
+      "type": "n8n-nodes-base.googleTasksTool",
+      "typeVersion": 1,
+      "position": [
+        400,
+        160
+      ],
+      "id": "c34fe906-7072-4f3e-8399-a44268c39a49",
+      "name": "Google Tasks3"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.0-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -300,
+        560
+      ],
+      "id": "f79e301d-bafe-4d29-95ac-880dd0153a05",
+      "name": "Google Gemini Chat Model1"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.0-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -240,
+        160
+      ],
+      "id": "f3ff098b-b1e1-4355-b849-c1cfe94a23dc",
+      "name": "Google Gemini Chat Model2"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -860,
+        580
+      ],
+      "id": "5bcd16a7-21c3-4ea9-9c8e-b36cfeba480f",
+      "name": "OpenAI Chat Model"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -740,
+        600
+      ],
+      "id": "5d8f376f-a77b-4f34-a5ab-f328ba6cd7e0",
+      "name": "Window Buffer Memory2"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-03-21T16:32:28.000Z",
+  "versionId": "af78f871-55d2-4f05-b0b0-ab4433c0c68b"
+}
