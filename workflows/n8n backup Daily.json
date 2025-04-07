@@ -1,0 +1,435 @@
+{
+  "active": false,
+  "connections": {
+    "Set date": {
+      "main": [
+        [
+          {
+            "node": "Format date",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format date": {
+      "main": [
+        [
+          {
+            "node": "Set commit date",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set commit date": {
+      "main": [
+        [
+          {
+            "node": "List files from repository [GITHUB]",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "List files from repository [GITHUB]": {
+      "main": [
+        [
+          {
+            "node": "Combine file names [GITHUB]",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Combine file names [GITHUB]": {
+      "main": [
+        [
+          {
+            "node": "Retrieve workflows [N8N]",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Retrieve workflows [N8N]": {
+      "main": [
+        [
+          {
+            "node": "Move JSON to binary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Move JSON to binary": {
+      "main": [
+        [
+          {
+            "node": "Split to single items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split to single items": {
+      "main": [
+        [
+          {
+            "node": "Check if file exists in repository",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check if file exists in repository": {
+      "main": [
+        [
+          {
+            "node": "Update file [GITHUB]",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Upload file [GITHUB]",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update file [GITHUB]": {
+      "main": [
+        [
+          {
+            "node": "Split to single items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload file [GITHUB]": {
+      "main": [
+        [
+          {
+            "node": "Split to single items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Set date",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-04-07T04:35:59.806Z",
+  "id": "DVt18GfbmtqyFakp",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "n8n backup Daily",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "96ffc83e-8cea-4b51-af49-752214f53ac5",
+      "name": "Set date",
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 2,
+      "position": [
+        -1900,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "formatDate",
+        "date": "={{ $json.currentDate }}",
+        "format": "custom",
+        "customFormat": "dd-MM-yyyy/H:mm",
+        "options": {}
+      },
+      "id": "ef844ad3-a122-4825-85f7-0f61485d88aa",
+      "name": "Format date",
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 2,
+      "position": [
+        -1700,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "commitDate",
+              "value": "={{ $json.formattedDate }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "74cf7a63-78a2-447d-915c-22711ab381a9",
+      "name": "Set commit date",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        -1500,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "file",
+        "operation": "list",
+        "owner": {
+          "__rl": true,
+          "value": "https://github.com/vicezvo",
+          "mode": "url"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "n8n-backup",
+          "mode": "list",
+          "cachedResultName": "n8n-backup",
+          "cachedResultUrl": "https://github.com/vicezvo/n8n-backup"
+        },
+        "filePath": "="
+      },
+      "id": "aabf54f6-ff32-4371-b667-6769ef14423b",
+      "name": "List files from repository [GITHUB]",
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1,
+      "position": [
+        -1300,
+        280
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "ZDlbXv1bU69MyZfB",
+          "name": "GitHub vicezvo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "aggregateItems",
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "name"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "afda6775-1b5a-4a03-8202-c75b61a4f54a",
+      "name": "Combine file names [GITHUB]",
+      "type": "n8n-nodes-base.itemLists",
+      "typeVersion": 2.1,
+      "position": [
+        -1100,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "filters": {},
+        "requestOptions": {}
+      },
+      "id": "46c1c543-8b1a-492c-a587-879f6d0e061f",
+      "name": "Retrieve workflows [N8N]",
+      "type": "n8n-nodes-base.n8n",
+      "typeVersion": 1,
+      "position": [
+        -900,
+        280
+      ],
+      "credentials": {
+        "n8nApi": {
+          "id": "84AVctC89aZOvlne",
+          "name": "n8n negatimien"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "jsonToBinary",
+        "options": {
+          "fileName": "={{ $json.name.replace(/\\s+/g, '-').toLowerCase() }}-{{ $json.id }}.json"
+        }
+      },
+      "id": "51bf190e-0893-4c3a-8e3e-4c838d7eff08",
+      "name": "Move JSON to binary",
+      "type": "n8n-nodes-base.moveBinaryData",
+      "typeVersion": 1,
+      "position": [
+        -700,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "a2877568-1bcc-488a-a8cd-943243d8cd69",
+      "name": "Split to single items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 2,
+      "position": [
+        -460,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $node['Combine file names [GITHUB]'].json.name }}",
+              "operation": "contains",
+              "value2": "={{ $binary.data.fileName }}"
+            }
+          ]
+        }
+      },
+      "id": "f9e32754-f7db-48d1-9d62-ae12093ddcc7",
+      "name": "Check if file exists in repository",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        -220,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "file",
+        "operation": "edit",
+        "owner": {
+          "__rl": true,
+          "value": "m-jasim-gmi",
+          "mode": "list",
+          "cachedResultName": "m-jasim-gmi",
+          "cachedResultUrl": "https://github.com/m-jasim-gmi"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "Backup-n8n-workflows",
+          "mode": "list",
+          "cachedResultName": "Backup-n8n-workflows",
+          "cachedResultUrl": "https://github.com/m-jasim-gmi/Backup-n8n-workflows"
+        },
+        "filePath": "={{ $binary.data.fileName }}",
+        "binaryData": true,
+        "commitMessage": "=backup-{{ $node['Set commit date'].json.commitDate }}"
+      },
+      "id": "e350ca3d-ec77-4248-93d3-64d867ff3c72",
+      "name": "Update file [GITHUB]",
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "ZDlbXv1bU69MyZfB",
+          "name": "GitHub vicezvo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "file",
+        "owner": {
+          "__rl": true,
+          "value": "m-jasim-gmi",
+          "mode": "list",
+          "cachedResultName": "m-jasim-gmi",
+          "cachedResultUrl": "https://github.com/m-jasim-gmi"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "Backup-n8n-workflows",
+          "mode": "list",
+          "cachedResultName": "Backup-n8n-workflows",
+          "cachedResultUrl": "https://github.com/m-jasim-gmi/Backup-n8n-workflows"
+        },
+        "filePath": "={{ $binary.data.fileName }}",
+        "binaryData": true,
+        "commitMessage": "=backup-{{ $node['Set commit date'].json.commitDate }}"
+      },
+      "id": "8c7ae59d-4594-48b6-bae0-5bc7a364577d",
+      "name": "Upload file [GITHUB]",
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1,
+      "position": [
+        0,
+        400
+      ],
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "ZDlbXv1bU69MyZfB",
+          "name": "GitHub vicezvo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 6
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -2120,
+        280
+      ],
+      "id": "d9a17303-25d1-4d0f-8994-f5559a8d0aec",
+      "name": "Schedule Trigger"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-04-07T04:41:16.000Z",
+  "versionId": "790e6230-43e2-4465-ac0d-b57721f4f23c"
+}
