@@ -1,0 +1,583 @@
+{
+  "active": false,
+  "connections": {
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Telegram1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Telegram2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [],
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "node": "Telegram4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-25T20:10:50.852Z",
+  "id": "qEneZZTOYQEtgXPm",
+  "meta": null,
+  "name": "Zalo",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## Zalo Login Via QR Code",
+        "height": 280,
+        "width": 1520
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "87337f1f-d45e-4591-8fe8-3139113adfc1",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        600,
+        1560
+      ],
+      "id": "2b1325da-cee4-4c61-af1c-e65a83d1ff72",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "content": "## Receive events from Zalo User and trigger workflows",
+        "height": 820,
+        "width": 1520,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        360
+      ],
+      "id": "d5dbb085-9ca0-4bfb-8241-616189b1ec7c",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## Get All Online Friends",
+        "height": 240,
+        "width": 1520,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        1480
+      ],
+      "id": "51b47e60-217f-46fb-b336-76a527c2be24",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "chatId": "-000",
+        "text": "={{ $json.data.dName }} ###{{ $json.threadId }}###{{ $json.type }}###: {{ $json.data.content }}\n",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1100,
+        380
+      ],
+      "id": "39ca7c84-e22e-4994-b97f-f4c062bb92ce",
+      "name": "Telegram",
+      "webhookId": "0037284f-46f8-4f54-a7b7-515bb603192a"
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        600,
+        1300
+      ],
+      "id": "2b912449-6cd8-40eb-8485-f0f8e0505dfe",
+      "name": "Telegram Trigger",
+      "webhookId": "69f085ea-034d-4ada-aaf1-9cde05176865"
+    },
+    {
+      "parameters": {
+        "content": "## Anwser Zalo messages via Telegram",
+        "height": 240,
+        "width": 1520,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        1220
+      ],
+      "id": "08761437-7809-453d-ac6c-b22dd2214e16",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-zalo-user.zaloUser",
+      "typeVersion": 2,
+      "position": [
+        60,
+        840
+      ],
+      "id": "f80f19bd-c3b4-4a99-b1bd-ad4e94be16d9",
+      "name": "Zalo User Trigger",
+      "credentials": {}
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-zalo-user.zaloUserInteract",
+      "typeVersion": 1,
+      "position": [
+        820,
+        1560
+      ],
+      "id": "0d7e12f5-61ee-415d-9279-5ddf0f3cbcd8",
+      "name": "Zalo User Interact",
+      "credentials": {}
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-zalo-user.zaloUserInteract",
+      "typeVersion": 1,
+      "position": [
+        820,
+        1300
+      ],
+      "id": "1c35df8d-46bc-491d-aa4f-98de9162f3af",
+      "name": "Zalo User Interact1",
+      "credentials": {}
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "593f613c-0692-43db-829c-b2546961cfd7",
+                    "leftValue": "={{ $json.data.msgType }}",
+                    "rightValue": "webchat",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.data.msgType }}",
+                    "rightValue": "chat.photo",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "00a6326f-480c-49a4-afc1-83783ff90ebc"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "9e03dd92-64d0-4230-ae06-2ad7f996aae4",
+                    "leftValue": "={{ $json.data.msgType }}",
+                    "rightValue": "chat.video.msg",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "50fa8978-a63e-41be-ab37-d52ff2f16f08",
+                    "leftValue": "={{ $json.data.msgType }}",
+                    "rightValue": "chat.sticker",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        280,
+        820
+      ],
+      "id": "7fed7c62-96b5-4827-a586-45c9645a4f03",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "operation": "sendPhoto",
+        "chatId": "-000",
+        "file": "={{ $json.data.content.href }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        500,
+        840
+      ],
+      "id": "065de1e2-6354-4b5a-8287-8c0d2374b68d",
+      "name": "Telegram1",
+      "webhookId": "c3db43d9-e169-49bc-873f-11220c6c987b"
+    },
+    {
+      "parameters": {
+        "operation": "sendVideo",
+        "chatId": "-000",
+        "file": "={{ $json.data.content.href }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        500,
+        1040
+      ],
+      "id": "d8410271-cfcb-4bfc-99a9-ed2e7eed9115",
+      "name": "Telegram2",
+      "webhookId": "40729fdb-dc40-492c-8385-09c580f53e08"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        720,
+        840
+      ],
+      "id": "36df4a61-c27f-4f3a-be81-14f422227b73",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.0-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        760,
+        1060
+      ],
+      "id": "f40ffbaa-4487-4351-a7a3-f8e1074b3d61",
+      "name": "Google Gemini Chat Model"
+    },
+    {
+      "parameters": {
+        "chatId": "-000",
+        "text": "={{ $('AI Agent').item.json.output.substring(0, 2000).replace(/[!@#$%^_&*()]/g, '') }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1320,
+        840
+      ],
+      "id": "848348d5-fde5-491e-bee9-68672f6ab9fb",
+      "name": "Telegram3",
+      "webhookId": "217cedc7-cc03-4d9f-9b4b-78942c7309a6"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Zalo User Trigger').item.json.data.idTo }}",
+        "contextWindowLength": 1000
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryRedisChat",
+      "typeVersion": 1.4,
+      "position": [
+        880,
+        1060
+      ],
+      "id": "226eb790-af77-4482-a87c-8b13364fd8a9",
+      "name": "Redis Chat Memory"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-zalo-user.zaloUserInteract",
+      "typeVersion": 1,
+      "position": [
+        1100,
+        840
+      ],
+      "id": "d57aa2d7-16f7-44e0-98db-46a57f9ee0ff",
+      "name": "Zalo User Interact2",
+      "credentials": {}
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "91c38034-452d-4d49-bb31-ada7df029480",
+              "leftValue": "={{ $json.data.content }}",
+              "rightValue": "/ai",
+              "operator": {
+                "type": "string",
+                "operation": "startsWith"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        500,
+        640
+      ],
+      "id": "459d22d3-c53a-48cd-9e36-7d8fab87b54e",
+      "name": "If"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-zalo-user.zaloUserLogin",
+      "typeVersion": 3,
+      "position": [
+        140,
+        100
+      ],
+      "id": "5befd1bb-89d2-4201-9265-551dc357b334",
+      "name": "Zalo Login Via QR Code",
+      "credentials": {}
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "1b3b05fc-0221-463e-a821-8f8cbfb39604",
+              "leftValue": "={{ $json.isSelf }}",
+              "rightValue": "isSelf",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "0e717c6b-50dc-4e77-a1fa-8061edcbc400",
+              "leftValue": "={{ $json.data.content }}",
+              "rightValue": "/ai",
+              "operator": {
+                "type": "string",
+                "operation": "startsWith"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        800,
+        480
+      ],
+      "id": "3c615a9a-705a-41ae-8968-e55d5deed0bd",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "da3b5a03-e784-486f-b0b1-99d7154cc6b7",
+              "leftValue": "={{ $json.isSelf }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "false",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1100,
+        580
+      ],
+      "id": "898d892d-a8d1-43d0-9b15-9954bdb4040d",
+      "name": "If2"
+    },
+    {
+      "parameters": {
+        "chatId": "-000",
+        "text": "={{ $json.data.dName }} ###{{ $json.threadId }}###{{ $json.type }}###: {{ $json.data.content }}\n",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1320,
+        580
+      ],
+      "id": "7c7c351b-7a78-4652-90dc-981ab0d5f773",
+      "name": "Telegram4",
+      "webhookId": "7cf33dc8-03eb-42ef-bb86-70d8c3b478d9"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-03-25T20:10:50.852Z",
+  "versionId": "cff19dac-babf-4f01-b8bd-d3e660dccc13"
+}
