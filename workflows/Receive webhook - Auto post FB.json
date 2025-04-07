@@ -1,0 +1,93 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Airtable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-23T05:58:42.164Z",
+  "id": "y4dWmhRQsNGgAsdu",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Receive webhook - Auto post FB",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "postfb-from-website",
+        "responseMode": "lastNode",
+        "responseData": "allEntries",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -600,
+        -20
+      ],
+      "id": "a99058cb-7d28-4dac-a3a0-b7265732a79b",
+      "name": "Webhook",
+      "webhookId": "953c9687-6e14-462c-83a3-b17daa977096"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appZg7hcvuQMs6Z68",
+          "mode": "list",
+          "cachedResultName": "Automation Post FB",
+          "cachedResultUrl": "https://airtable.com/appZg7hcvuQMs6Z68"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbll41LI3MS8F7J0m",
+          "mode": "list",
+          "cachedResultName": "Balance",
+          "cachedResultUrl": "https://airtable.com/appZg7hcvuQMs6Z68/tbll41LI3MS8F7J0m"
+        },
+        "filterByFormula": "({User}='{{ $json.body.content }}')",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -380,
+        -20
+      ],
+      "id": "1fe155c8-9bba-4919-bb3d-c7de117c71d1",
+      "name": "Airtable",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ImlRaCQr8XY09CK7",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-04-01T20:30:31.230Z",
+      "updatedAt": "2025-04-01T20:30:31.230Z",
+      "id": "QuhEA9cZi5VnhWA0",
+      "name": "Post FB"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-04-02T18:16:09.000Z",
+  "versionId": "a0470370-1566-410a-ba96-e6dab3bff888"
+}
