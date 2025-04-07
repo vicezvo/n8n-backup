@@ -1,0 +1,118 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Airtable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Airtable": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-04-02T17:58:28.347Z",
+  "id": "pc3lfgTKF59oPtMD",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Get Balance Post Facebook",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "get-balance-post-facebook",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "c029da5c-f0d7-425c-9778-444e05f2247e",
+      "name": "Webhook",
+      "webhookId": "e4e497b1-ffcb-44c8-8cf1-c34966e8d056"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appZg7hcvuQMs6Z68",
+          "mode": "list",
+          "cachedResultName": "Automation Post FB",
+          "cachedResultUrl": "https://airtable.com/appZg7hcvuQMs6Z68"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbll41LI3MS8F7J0m",
+          "mode": "list",
+          "cachedResultName": "Balance",
+          "cachedResultUrl": "https://airtable.com/appZg7hcvuQMs6Z68/tbll41LI3MS8F7J0m"
+        },
+        "filterByFormula": "=({User}='{{ $json.body.content }}')",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        220,
+        0
+      ],
+      "id": "2213b849-7249-4d41-b699-56c307bd29ff",
+      "name": "Airtable",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ImlRaCQr8XY09CK7",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"Balance\": \"{{ $json.Balance }}\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        440,
+        0
+      ],
+      "id": "6f5999c7-3de6-413c-8666-65e374d9376b",
+      "name": "Respond to Webhook"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-04-01T20:30:31.230Z",
+      "updatedAt": "2025-04-01T20:30:31.230Z",
+      "id": "QuhEA9cZi5VnhWA0",
+      "name": "Post FB"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-04-02T18:13:54.000Z",
+  "versionId": "20ccc860-91b4-4c17-8a4c-d6412108fc6b"
+}
