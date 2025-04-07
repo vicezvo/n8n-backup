@@ -1,0 +1,118 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Airtable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Airtable": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-23T15:18:11.139Z",
+  "id": "0lnC6uLMz9uzCVeX",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Get Balance Seeding Tiktok",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "get-balance-seeding-tiktok",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "d97d62ce-e16d-43a1-8034-4c51cc4fd12e",
+      "name": "Webhook",
+      "webhookId": "d4db5d1f-46cb-43ba-9549-18e0b8c49a77"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appzJcnRtbGnXiYXK",
+          "mode": "list",
+          "cachedResultName": "TikTok Balance Management",
+          "cachedResultUrl": "https://airtable.com/appzJcnRtbGnXiYXK"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblthQfJbW0BLVB6m",
+          "mode": "list",
+          "cachedResultName": "Balances",
+          "cachedResultUrl": "https://airtable.com/appzJcnRtbGnXiYXK/tblthQfJbW0BLVB6m"
+        },
+        "filterByFormula": "=({Key}='{{ $json.body.content }}')",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        220,
+        0
+      ],
+      "id": "704ddd3b-d82a-4f0e-a280-e9edaca30b8c",
+      "name": "Airtable",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ImlRaCQr8XY09CK7",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"Balance\": \"{{ $json.Balance }}\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        440,
+        0
+      ],
+      "id": "85348100-548f-4eab-9c18-dfd2ed04ea2f",
+      "name": "Respond to Webhook"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-03-23T15:07:55.927Z",
+      "updatedAt": "2025-03-23T15:07:55.927Z",
+      "id": "ibs2TNPNbXf6bZiH",
+      "name": "Seeding Tiktok"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-04-01T20:09:55.000Z",
+  "versionId": "8dc501bf-a192-4681-b973-8b3f91a44054"
+}
