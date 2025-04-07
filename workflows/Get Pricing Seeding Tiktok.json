@@ -1,0 +1,91 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Airtable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-23T15:11:59.884Z",
+  "id": "5G1MIrRb3jdIchwN",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Get Pricing Seeding Tiktok",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "get-pricing-seeding-tiktok",
+        "responseMode": "lastNode",
+        "responseData": "allEntries",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "7bdfff8d-5b60-4334-9acf-78b01ce13d94",
+      "name": "Webhook",
+      "webhookId": "b12cb845-98f4-4b72-adbe-4cc2ec686cc8"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appzJcnRtbGnXiYXK",
+          "mode": "list",
+          "cachedResultName": "TikTok Balance Management",
+          "cachedResultUrl": "https://airtable.com/appzJcnRtbGnXiYXK"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbluOCup6zzdaDud8",
+          "mode": "list",
+          "cachedResultName": "Pricings",
+          "cachedResultUrl": "https://airtable.com/appzJcnRtbGnXiYXK/tbluOCup6zzdaDud8"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        220,
+        0
+      ],
+      "id": "25583c41-904a-4324-9405-ca65224bda86",
+      "name": "Airtable",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ImlRaCQr8XY09CK7",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-03-23T15:07:55.927Z",
+      "updatedAt": "2025-03-23T15:07:55.927Z",
+      "id": "ibs2TNPNbXf6bZiH",
+      "name": "Seeding Tiktok"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-03-23T18:35:18.000Z",
+  "versionId": "b4e9eb67-1874-4c73-b28c-1e70057f7efc"
+}
