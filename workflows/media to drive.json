@@ -1,0 +1,157 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Google Drive",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Replace Me",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Me": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-03-21T16:19:19.757Z",
+  "id": "JkkuSNqfpw4dqcDM",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "media to drive",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "upload-media-to-drive",
+        "responseMode": "lastNode",
+        "responseData": "allEntries",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "eac345d4-7fb3-4a21-8e90-ef42b2be5ada",
+      "name": "Webhook",
+      "webhookId": "16b96e6b-3f9c-46da-a278-89c54a60d993"
+    },
+    {
+      "parameters": {
+        "jsCode": "let results = [];\n\nfor (let item of items) {\n  if (!item.binary) {\n    continue; // Bỏ qua nếu không có dữ liệu binary\n  }\n\n  for (let key of Object.keys(item.binary)) {\n    results.push({\n      json: {\n        fileName: item.binary[key].fileName\n      },\n      binary: {\n        data: item.binary[key]\n      }\n    });\n  }\n}\n\nreturn results;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "b3b7230a-317b-440f-b7d7-be5fa7b5b606",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        440,
+        0
+      ],
+      "id": "5b0c43c6-27a2-4822-a3eb-111ecdb96299",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "name": "Replace Me",
+      "typeVersion": 1,
+      "position": [
+        660,
+        40
+      ],
+      "id": "da69c2a6-0349-481e-91c4-7ac32be28590"
+    },
+    {
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1lTU3RzfqD4BLfkimVpjJrUXkpPLHZodj",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        840,
+        -20
+      ],
+      "id": "34fb94e9-645a-4b14-8c73-203be61c141e",
+      "name": "Google Drive",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "ffj1ktwFjvbRQW9V",
+          "name": "Google Drive account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-03-21T17:58:28.000Z",
+  "versionId": "f3bfc5d1-5ffb-40e4-9049-b1e1069f6cb0"
+}
