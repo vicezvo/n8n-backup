@@ -143,7 +143,9 @@
   },
   "createdAt": "2025-05-10T20:56:42.116Z",
   "id": "J7mWiCMcs0NOTCwm",
-  "meta": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "name": "BCKP_WF New",
   "nodes": [
     {
@@ -200,7 +202,6 @@
     },
     {
       "parameters": {
-        "authentication": "oAuth2",
         "resource": "file",
         "operation": "list",
         "owner": {
@@ -226,7 +227,13 @@
         280
       ],
       "alwaysOutputData": true,
-      "webhookId": "c573f07d-61d0-4a8a-a544-8f483f6c27a7"
+      "webhookId": "c573f07d-61d0-4a8a-a544-8f483f6c27a7",
+      "credentials": {
+        "githubApi": {
+          "id": "tkdpuaLmIk08TDaP",
+          "name": "GitHub vicezvo"
+        }
+      }
     },
     {
       "parameters": {
@@ -261,7 +268,13 @@
       "position": [
         -900,
         280
-      ]
+      ],
+      "credentials": {
+        "n8nApi": {
+          "id": "4SmgVbxyCqNd4gJ1",
+          "name": "n8n account"
+        }
+      }
     },
     {
       "parameters": {
@@ -316,7 +329,6 @@
     },
     {
       "parameters": {
-        "authentication": "oAuth2",
         "resource": "file",
         "operation": "edit",
         "owner": {
@@ -345,7 +357,13 @@
         0,
         0
       ],
-      "webhookId": "b8ea8328-ab69-4edd-b8ea-a1c41f9a5706"
+      "webhookId": "b8ea8328-ab69-4edd-b8ea-a1c41f9a5706",
+      "credentials": {
+        "githubApi": {
+          "id": "tkdpuaLmIk08TDaP",
+          "name": "GitHub vicezvo"
+        }
+      }
     },
     {
       "parameters": {
@@ -377,7 +395,13 @@
         0,
         400
       ],
-      "webhookId": "cae87e03-ff67-4c78-ac17-866958c45235"
+      "webhookId": "cae87e03-ff67-4c78-ac17-866958c45235",
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "K4FWfiDN7SqYXGXj",
+          "name": "GitHub account"
+        }
+      }
     },
     {
       "parameters": {
@@ -407,6 +431,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-05-10T20:56:42.000Z",
-  "versionId": "6fd71db0-2f4b-4052-8d77-37462f373588"
+  "updatedAt": "2025-05-10T21:18:54.000Z",
+  "versionId": "a44877bd-2374-497e-8433-6f95f487e96d"
 }
